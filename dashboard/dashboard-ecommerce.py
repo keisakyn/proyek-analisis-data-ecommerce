@@ -7,7 +7,8 @@ sns.set(style='darkgrid')
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("D:/dicoding/dataset e-commerce.csv")
+    # df = pd.read_csv("D:/dicoding/dataset e-commerce.csv")
+    df = pd.read_csv("dataset e-commerce.csv")
     df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
     df['order_purchase_month'] = df['order_purchase_timestamp'].dt.to_period('M')
     return df
