@@ -2,13 +2,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-
-sns.set(style='darkgrid')
+import gdown
+import os
 
 @st.cache_data
 def load_data():
-    # df = pd.read_csv("D:/dicoding/dataset e-commerce.csv")
-    df = pd.read_csv("dataset e-commerce.csv")
+    url = "https://drive.google.com/uc?id=1ukPVBFwYJU-Y3w7w-GHXUDeu6Iayf9P0"
+    output = "dataset_ecommerce.csv"
+    if not os.path.exists(output):
+        gdown.download(url, output, quiet=False)
+
+    df = pd.read_csv(output)
     df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
     df['order_purchase_month'] = df['order_purchase_timestamp'].dt.to_period('M')
     return df
