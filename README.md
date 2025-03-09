@@ -6,7 +6,9 @@ An interactive Streamlit dashboard for analyzing e-commerce transaction data, in
 ## Setup Environment
 ```sh
 pip install -r requirements.txt
+'''
 
-**## Run Streamlit App**
+## Run Streamlit App
 '''sh
 streamlit run dashboard/dashboard-ecommerce.py
+'''
